@@ -33,8 +33,8 @@ function addTestPages(tests: Tests, basePath = '') {
   const len = testEntries.length;
   testEntries.forEach(([testPath, test], i) => {
     const testBasePath = basePath + testPath + '/';
-    const prev = i !== 0 ? testEntries[i + 1][0] : testEntries[len - 1][0];
-    const next = i !== len - 1 ? testEntries[i - 1][0] : testEntries[0][0];
+    const prev = i !== 0 ? testEntries[i - 1][0] : testEntries[len - 1][0];
+    const next = i !== len - 1 ? testEntries[i + 1][0] : testEntries[0][0];
     toOutput[testBasePath + 'index.html'] = renderPage(
       <TestPage test={test} prev={prev + '/'} next={next + '/'} />,
     );

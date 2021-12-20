@@ -137,6 +137,7 @@ const TestPage: FunctionalComponent<Props> = ({ test, prev, next }: Props) => {
               </section>
               <section>
                 <h1>Conclusion</h1>
+                <a href={`./../${prev}`}>Testing</a>
                 <article>
                   {Object.entries(test.results).map(([subject, result]) => {
                     const summaryInner = (
@@ -184,9 +185,11 @@ const TestPage: FunctionalComponent<Props> = ({ test, prev, next }: Props) => {
                   })}
                 </article>
               </section>{' '}
-              <a>Testing</a>
             </div>
           )}
+          <div>
+            <a href={prev}>hereissomething</a>
+          </div>
         </main>
 
         <Footer />
