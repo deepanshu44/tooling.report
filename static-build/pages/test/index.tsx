@@ -53,9 +53,11 @@ import Dot from 'shared/components/Dot/index.js';
 
 interface Props {
   test: Test;
+  prev: string;
+  next: string;
 }
 
-const TestPage: FunctionalComponent<Props> = ({ test }: Props) => {
+const TestPage: FunctionalComponent<Props> = ({ test, prev, next }: Props) => {
   return (
     <html lang="en">
       <head>
@@ -128,13 +130,11 @@ const TestPage: FunctionalComponent<Props> = ({ test }: Props) => {
                   />
                 ))}
               </ul>
-
               <section class={$explainerPost}>
                 <article
                   dangerouslySetInnerHTML={{ __html: test.html }}
                 ></article>
               </section>
-
               <section>
                 <h1>Conclusion</h1>
                 <article>
@@ -183,7 +183,8 @@ const TestPage: FunctionalComponent<Props> = ({ test }: Props) => {
                     );
                   })}
                 </article>
-              </section>
+              </section>{' '}
+              <a>Testing</a>
             </div>
           )}
         </main>

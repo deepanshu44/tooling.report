@@ -29,14 +29,18 @@ const toOutput: Output = {
 };
 
 function addTestPages(tests: Tests, basePath = '') {
-  for (const [testPath, test] of Object.entries(tests)) {
+  const testEntries = Object.entries(tests);
+  const len = testEntries.length;
+  testEntries.forEach(([testPath, test], i) => {
     const testBasePath = basePath + testPath + '/';
+    const prev = i !== 0 ? testEntries[i + 1][0] : testEntries[len - 1][0];
+    const next = i !== len - 1 ? testEntries[i - 1][0] : testEntries[0][0];
     toOutput[testBasePath + 'index.html'] = renderPage(
-      <TestPage test={test} />,
+      <TestPage test={test} prev={prev + '/'} next={next + '/'} />,
     );
 
     if (test.subTests) addTestPages(test.subTests, testBasePath);
-  }
+  });
 }
 
 addTestPages(testData);
