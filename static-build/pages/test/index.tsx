@@ -47,7 +47,13 @@ import {
 } from './collection.css';
 import { $contentContainer } from 'static-build/shared/styles/sizing.css';
 import { $well } from '../../shared/styles/well.css';
-import { $heroImage, $heroText } from './styles.css';
+import {
+  $heroImage,
+  $heroText,
+  $nav,
+  $something,
+  $something2,
+} from './styles.css';
 import Connect from 'static-build/components/Connect/index.js';
 import Dot from 'shared/components/Dot/index.js';
 
@@ -187,8 +193,14 @@ const TestPage: FunctionalComponent<Props> = ({ test, prev, next }: Props) => {
               </section>{' '}
             </div>
           )}
-          <div>
-            <a href={prev}>hereissomething</a>
+          <div class={$nav}>
+            <svg class={$something} viewBox="0 0 9 5">
+              <path d="M4.6 2.7L9 0v2.1L4.7 5.3h-.2L0 2.1V0z" />
+            </svg>
+
+            <svg class={$something2} viewBox="0 0 9 5">
+              <path d="M4.6 2.7L9 0v2.1L4.7 5.3h-.2L0 2.1V0z" />
+            </svg>
           </div>
         </main>
 
