@@ -1,0 +1,46 @@
+.nav {
+  display: flex;
+  position: relative;
+  bottom: 7vh;
+  justify-content: space-between;
+
+  & a {
+    text-decoration: none;
+  }
+
+  & > div {
+    width: 35%;
+  }
+  & ul {
+    list-style: none;
+    display: flex;
+  }
+}
+.something {
+  height: 30px;
+  width: 100px;
+  transform: rotate(90deg);
+  fill: aliceblue;
+}
+.something2 {
+  height: 30px;
+  width: 100px;
+  transform: rotate(-90deg);
+  fill: aliceblue;
+}
+
+.right {
+  right: 88px;
+}
+
+div.lighter {
+  font-weight: lighter;
+}
+.link-data1,
+.link-data2 {
+  position: relative;
+  top: -30px;
+}
+.link-data2 {
+  text-align: right;
+}

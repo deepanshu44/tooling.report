@@ -4,6 +4,7 @@
 @import 'components/TestCard/styles.css';
 @import 'components/BreadCrumbs/styles.css';
 @import 'components/TestResultSnippet/styles.css';
+@import 'components/TestPagination/styles.css';
 @import 'shared/components/Dot/styles.css';
 
 .heroImage {
@@ -62,21 +63,4 @@
   .heroText {
     align-self: initial;
   }
-}
-
-.nav {
-  display: flex;
-  position: relative;
-  bottom: 580px;
-  justify-content: space-between;
-}
-.something {
-  height: 30px;
-  width: 100px;
-  transform: rotate(90deg);
-}
-.something2 {
-  height: 30px;
-  width: 100px;
-  transform: rotate(-90deg);
 }

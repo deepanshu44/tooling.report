@@ -22,21 +22,40 @@ import testData from 'test-data:';
 interface Output {
   [outputPath: string]: string;
 }
+
 const toOutput: Output = {
   'index.html': renderPage(<IndexPage tests={testData} />),
   'about/index.html': renderPage(<AboutPage />),
   'faqs/index.html': renderPage(<FAQPage />),
 };
 
+function getPrevOrNextData(testEntry: [string, Test]): PaginationData {
+  return {
+    link: './../' + testEntry[0] + '/',
+    meta: {
+      title: testEntry[1].meta.title,
+      shortDesc: testEntry[1].meta.shortDesc,
+    },
+  };
+}
 function addTestPages(tests: Tests, basePath = '') {
-  const testEntries = Object.entries(tests);
+  const testEntries: [string, Test][] = Object.entries(tests);
   const len = testEntries.length;
   testEntries.forEach(([testPath, test], i) => {
     const testBasePath = basePath + testPath + '/';
-    const prev = i !== 0 ? testEntries[i - 1][0] : testEntries[len - 1][0];
-    const next = i !== len - 1 ? testEntries[i + 1][0] : testEntries[0][0];
+
+    const prevData: PaginationData =
+      i !== 0
+        ? getPrevOrNextData(testEntries[i - 1])
+        : getPrevOrNextData(testEntries[len - 1]);
+
+    const nextData: PaginationData =
+      i !== len - 1
+        ? getPrevOrNextData(testEntries[i + 1])
+        : getPrevOrNextData(testEntries[0]);
+
     toOutput[testBasePath + 'index.html'] = renderPage(
-      <TestPage test={test} prev={prev + '/'} next={next + '/'} />,
+      <TestPage test={test} prev={prevData} next={nextData} />,
     );
 
     if (test.subTests) addTestPages(test.subTests, testBasePath);
