@@ -14,23 +14,20 @@
   & ul {
     list-style: none;
     display: flex;
+    padding-left: 0px;
   }
 }
-.something {
+.svgLeft {
   height: 30px;
   width: 100px;
   transform: rotate(90deg);
   fill: aliceblue;
 }
-.something2 {
+.svgRight {
   height: 30px;
   width: 100px;
   transform: rotate(-90deg);
   fill: aliceblue;
-}
-
-.right {
-  right: 88px;
 }
 
 div.lighter {
@@ -39,7 +36,7 @@ div.lighter {
 .link-data1,
 .link-data2 {
   position: relative;
-  top: -30px;
+  top: -21px;
 }
 .link-data2 {
   text-align: right;

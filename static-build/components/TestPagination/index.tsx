@@ -18,8 +18,8 @@ import {
   $linkData2,
   $nav,
   $right,
-  $something,
-  $something2,
+  $svgLeft,
+  $svgRight,
 } from './styles.css';
 interface Props {
   prev: PaginationData;
@@ -33,7 +33,7 @@ const TestPagination: FunctionalComponent<Props> = ({ prev, next }: Props) => {
         <a href={prev.link}>
           <ul>
             <li>
-              <svg class={$something} viewBox="0 0 9 5">
+              <svg class={$svgLeft} viewBox="0 0 9 5">
                 <path d="M4.6 2.7L9 0v2.1L4.7 5.3h-.2L0 2.1V0z" />
               </svg>
             </li>
@@ -48,12 +48,12 @@ const TestPagination: FunctionalComponent<Props> = ({ prev, next }: Props) => {
         <a href={next.link}>
           <ul>
             <li class={$linkData2}>
-              <div class={$right}>{next.meta.title}</div>
+              <div>{next.meta.title}</div>
               <div class={$lighter}>{next.meta.shortDesc}</div>
             </li>
             <li>
               {' '}
-              <svg class={$something2} viewBox="0 0 9 5">
+              <svg class={$svgRight} viewBox="0 0 9 5">
                 <path d="M4.6 2.7L9 0v2.1L4.7 5.3h-.2L0 2.1V0z" />
               </svg>
             </li>
