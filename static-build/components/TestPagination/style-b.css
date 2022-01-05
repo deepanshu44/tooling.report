@@ -32,13 +32,11 @@
 div.lighter {
   font-weight: lighter;
 }
-.link-data1 {
+.link-data1,
+.link-data2 {
   position: relative;
   top: -21px;
 }
 .link-data2 {
   text-align: right;
-}
-.container {
-  display: flex;
 }
