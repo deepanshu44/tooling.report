@@ -50,12 +50,15 @@ import { $well } from '../../shared/styles/well.css';
 import { $heroImage, $heroText } from './styles.css';
 import Connect from 'static-build/components/Connect/index.js';
 import Dot from 'shared/components/Dot/index.js';
+import TestPagination from 'static-build/components/TestPagination/index.js';
 
 interface Props {
   test: Test;
+  prev: PaginationData;
+  next: PaginationData;
 }
 
-const TestPage: FunctionalComponent<Props> = ({ test }: Props) => {
+const TestPage: FunctionalComponent<Props> = ({ test, prev, next }: Props) => {
   return (
     <html lang="en">
       <head>
@@ -128,15 +131,14 @@ const TestPage: FunctionalComponent<Props> = ({ test }: Props) => {
                   />
                 ))}
               </ul>
-
               <section class={$explainerPost}>
                 <article
                   dangerouslySetInnerHTML={{ __html: test.html }}
                 ></article>
               </section>
-
               <section>
                 <h1>Conclusion</h1>
+                <a href={`./../${prev}`}>Testing</a>
                 <article>
                   {Object.entries(test.results).map(([subject, result]) => {
                     const summaryInner = (
@@ -183,11 +185,11 @@ const TestPage: FunctionalComponent<Props> = ({ test }: Props) => {
                     );
                   })}
                 </article>
-              </section>
+              </section>{' '}
+              <TestPagination prev={prev} next={next} />
             </div>
           )}
         </main>
-
         <Footer />
       </body>
     </html>
