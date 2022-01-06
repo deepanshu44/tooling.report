@@ -25,18 +25,15 @@
 .container {
   display: flex;
   & > .svgHolder{
-     min-width: 80px;
+     width: 80px;
      align-self: center;
      fill: aliceblue;
   }
 }
 .svgLeft {
-    min-height: fit-content;
-    max-height: fit-content;
   transform: rotate(90deg);
 }
 .svgRight {
-
   transform: rotate(-90deg);
 }
 
