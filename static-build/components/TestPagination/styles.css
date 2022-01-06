@@ -2,13 +2,19 @@
   display: flex;
   position: relative;
   justify-content: space-between;
+  align-items: center;
+  width: 110%;
+  right: 22px;
 
   & a {
     text-decoration: none;
   }
 
   & > div {
-    width: 35%;
+    width: 40%;
+  @media(max-width:500px){
+      transform: scale(0.7);
+  }
   }
   & ul {
     list-style: none;
@@ -16,17 +22,22 @@
     padding-left: 0px;
   }
 }
+.container {
+  display: flex;
+  & > .svgHolder{
+     min-width: 80px;
+     align-self: center;
+     fill: aliceblue;
+  }
+}
 .svgLeft {
-  height: 30px;
-  width: 100px;
+    min-height: fit-content;
+    max-height: fit-content;
   transform: rotate(90deg);
-  fill: aliceblue;
 }
 .svgRight {
-  height: 30px;
-  width: 100px;
+
   transform: rotate(-90deg);
-  fill: aliceblue;
 }
 
 div.lighter {
@@ -34,11 +45,7 @@ div.lighter {
 }
 .link-data1 {
   position: relative;
-  top: -21px;
 }
 .link-data2 {
   text-align: right;
-}
-.container {
-  display: flex;
 }
