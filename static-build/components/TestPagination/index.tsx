@@ -13,7 +13,7 @@
 
 import { h, FunctionalComponent } from 'preact';
 import {
-  $lighter,
+  $metaData,
   $linkData1,
   $linkData2,
   $nav,
@@ -40,7 +40,7 @@ const TestPagination: FunctionalComponent<Props> = ({ prev, next }: Props) => {
             </div>
             <div class={$linkData1}>
               <div>{prev.meta.title}</div>
-              <div class={$lighter}>{prev.meta.shortDesc}</div>
+              <div class={$metaData}>{prev.meta.shortDesc}</div>
             </div>
           </div>
         </a>
@@ -50,7 +50,7 @@ const TestPagination: FunctionalComponent<Props> = ({ prev, next }: Props) => {
           <div class={$container}>
             <div class={$linkData2}>
               <div>{next.meta.title}</div>
-              <div class={$lighter}>{next.meta.shortDesc}</div>
+              <div class={$metaData}>{next.meta.shortDesc}</div>
             </div>
             <div class={$svgHolder}>
               <svg class={$svgRight} viewBox="0 0 9 5">

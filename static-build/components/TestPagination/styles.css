@@ -50,7 +50,7 @@
   left: var(--spacing-3);
 }
 
-div.lighter {
+div.metaData {
   font-weight: lighter;
 
   @media (max-width: 500px) {
@@ -77,7 +77,7 @@ div.lighter {
   }
 }
 @media (max-width: 500px) and (orientation: portrait) {
-  .lighter {
+  .metaData {
     display: none;
   }
 }
