@@ -28,14 +28,34 @@ const toOutput: Output = {
   'faqs/index.html': renderPage(<FAQPage />),
 };
 
-function getPrevOrNextData(testEntry: [string, Test]): PaginationData {
-  return {
-    link: './../' + testEntry[0] + '/',
-    meta: {
-      title: testEntry[1].meta.title,
-      shortDesc: testEntry[1].meta.shortDesc,
-    },
-  };
+function getPrevOrNextData(
+  testEntry: [string, Test] | 'goto parent' | 'hide end',
+): PaginationData {
+  if (typeof testEntry === 'object') {
+    return {
+      link: './../' + testEntry[0] + '/',
+      meta: {
+        title: testEntry[1].meta.title,
+        shortDesc: testEntry[1].meta.shortDesc,
+      },
+    };
+  } else if (testEntry === 'goto parent') {
+    return {
+      link: './../' + testEntry[0] + '/',
+      meta: {
+        title: testEntry,
+        shortDesc: '',
+      },
+    };
+  } else {
+    return {
+      link: './../' + testEntry[0] + '/',
+      meta: {
+        title: testEntry[1].meta.title,
+        shortDesc: testEntry[1].meta.shortDesc,
+      },
+    };
+  }
 }
 
 function addTestPages(tests: Tests, basePath = '') {
