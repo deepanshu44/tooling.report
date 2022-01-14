@@ -41,18 +41,18 @@ function getPrevOrNextData(
     };
   } else if (testEntry === 'goto parent') {
     return {
-      link: './../' + testEntry[0] + '/',
+      link: '../',
       meta: {
         title: testEntry,
-        shortDesc: '',
+        shortDesc: 'go back',
       },
     };
   } else {
     return {
-      link: './../' + testEntry[0] + '/',
+      link: '/',
       meta: {
-        title: testEntry[1].meta.title,
-        shortDesc: testEntry[1].meta.shortDesc,
+        title: testEntry,
+        shortDesc: '',
       },
     };
   }
@@ -67,12 +67,12 @@ function addTestPages(tests: Tests, basePath = '') {
     const prevTest: PaginationData =
       i !== 0
         ? getPrevOrNextData(testEntries[i - 1])
-        : getPrevOrNextData(testEntries[len - 1]);
+        : getPrevOrNextData('goto parent');
 
     const nextTest: PaginationData =
       i !== len - 1
         ? getPrevOrNextData(testEntries[i + 1])
-        : getPrevOrNextData(testEntries[0]);
+        : getPrevOrNextData('hide end');
 
     test.prevTest = prevTest;
     test.nextTest = nextTest;
